@@ -1,0 +1,27 @@
+.settings{
+  padding: 20px;
+  position: relative;
+  top: 128px;
+  h2{
+    padding-bottom:10px;
+    color: $petrol-light;
+  }
+
+  h3{
+    padding-bottom: 10px;
+    color: $dark;
+  }
+
+  .excerpt{
+    padding-bottom:10px;
+    color: $dark-medium;
+  }
+
+  .locale-select{
+    padding-bottom:10px;
+  }
+
+  .long-desctiption{
+    padding-bottom:10px;
+  }
+}

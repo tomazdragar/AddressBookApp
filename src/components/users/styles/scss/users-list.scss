@@ -1,0 +1,56 @@
+.users-list{
+  position: relative;
+  top: 200px;
+  padding:20px;
+
+  h2{
+    padding-bottom:10px;
+    color: $petrol-light;
+  }
+
+  h3{
+    padding-bottom: 10px;
+    color: $dark;
+  }
+
+  .refresh-button {
+    float: right;
+    margin-bottom: 30px;
+  }
+  .card-title {
+    font-size: 12px;
+    .ant-avatar {
+      margin-right: 10px;
+    }
+  }
+  .ant-card-body {
+    padding: 10px 15px;
+    .email {
+      font-size: 12px;
+      line-height: 20px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+  .demo-loading-container {
+    text-align: center;
+  }
+  .search-wrapper {
+    position: fixed;
+    width: 100%;
+    background-color: white;
+    z-index: 10;
+    left: 0px;
+    padding-top: 20px;
+    padding-left: 10px;
+    top: 128px;
+    padding-right: 10px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid black;
+  }
+  .users-count {
+    line-height: 33px;
+    text-align: right;
+  }
+}

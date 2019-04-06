@@ -1,0 +1,25 @@
+@import "variables";
+@import "fonts";
+@import "../../components/navigation/styles/scss/navigation";
+@import "../../components/users/styles/scss/users-list";
+@import "../../components/users/styles/scss/user-detail";
+@import "../../components/settings/styles/scss/settings";
+@import "ant-design-overrides";
+
+body {
+  font-family: HelveticaNeueLTPro-Md;
+  color: $dark;
+}
+
+.main-wrapper{
+  min-width: 400px;
+}
+h1.meeting-title{
+  font-family: HelveticaNeueLTPro-Roman;
+  padding:20px;
+  background-color: $white;
+  color:#2D557C;
+  position: fixed;
+  z-index: 10;
+  width: 100%;
+}
