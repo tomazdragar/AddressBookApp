@@ -7,6 +7,11 @@ interface IUserDetail {
     user: IUser
 }
 
+/**
+ * Functional component which is composed with a trigger button
+ * and a modal. When the button is clicked, the modal opens and shows the user data.
+ * @param {IUserDetail} user - User data from the randomuser.me (1 single user object).
+ */
 const UserDetail = ({ user}: IUserDetail) => {
     const [visible, setVisible] = React.useState(false)
 

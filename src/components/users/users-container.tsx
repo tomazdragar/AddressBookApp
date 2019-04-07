@@ -14,14 +14,27 @@ interface IUsers {
     setLocale: any
 }
 
+/**
+ * Functional component which is an entry point to the users page.
+ * It is connected to the redux store, its state is mapped to props as also action functions.
+ * @param {object} user
+ * @param {object} settings
+ * @param {function} fetchUsers - Action
+ * @param {function} clearUsers - Action
+ * @param {function} setLocale - Action
+ */
 const UsersContainer = ({users, settings, fetchUsers, clearUsers, setLocale }: IUsers) => {
 
+    // If store is not filled yet, and the locale is not set, then set the default locale.
     React.useEffect(()=>{
         if (!users.length) {
             setLocale('gb')
         }
     },[users])
 
+    // This functional component is actually a container... which is kind of pointless if we return only
+    // one child component. However in reality there is usually more children returned, so I made this 'wrapper',
+    // so that we can add more child components later and each get connected with the store.
     return (
         <div className="users">
             <UsersList users={users} fetchUsers={fetchUsers} clearUsers={clearUsers} settings={settings}/>

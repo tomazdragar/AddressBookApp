@@ -7,9 +7,11 @@ import settings from "./components/settings/reducers/settings"
 import users from "./components/users/reducers/users"
 
 // This class is very important for testing.
-// It 'separates' the redux store from the app, so that we can use it for testing also.
+// It 'separates' the redux provider/store from the app, so that we can use it for testing also.
 // This gives us powerful tool for testing components with actual data.
-// Instead of testing comopnents with dummy data, we can build tests with real data from store!
+// Instead of testing comopnents with dummy data, inserted directly to the component,
+// we can build tests with real data from store and manipulate component while testing, so that
+// we can actually test how it behaves!
 const Root = ({children={}, initialState={}}) => {
     const rootReducer = combineReducers({
         settings,
@@ -25,8 +27,7 @@ const Root = ({children={}, initialState={}}) => {
         initialState,
         applyMiddleware(thunk, logger)
     )
-    console.log(initialState)
-    console.log(children)
+
     return (
         <Provider store={store}>
             {children}

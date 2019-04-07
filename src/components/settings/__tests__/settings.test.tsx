@@ -5,6 +5,7 @@ import Root from '../../../root'
 import users from '../../users/apis/randomuser'
 import SettingsContainer from "../settings-container";
 
+// Setting the variables/functions needed to populate initialData for the store
 const getUsers = async() => users.get('/?page=1&results=5&seed=abc&nat=ch')
 const settingsData = {
     title: "Settings",
@@ -34,6 +35,6 @@ it('is settings locale selector shown at load', () => {
     expect(wrapped.find('.locale-select').length).toEqual(1);
 })
 
-it('is default selection working correctly (testing with ch initial value)', () => {
+it('is default selection of the locale selector working correctly (testing with ch initial value)', () => {
     expect(wrapped.find('.ant-radio-button-wrapper-checked').text()).toEqual('CH');
 })

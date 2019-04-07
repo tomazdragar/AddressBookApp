@@ -14,21 +14,34 @@ interface IUsersList {
     clearUsers: any
 }
 
+
 const UsersList = ({users, settings, fetchUsers, clearUsers}: IUsersList) => {
+    // Creating state and its update functions for each property.
     const [dataSource, setDataSource] = React.useState(users)
     const [loading, setLoading] = React.useState(false)
     const [hasMore, setHasMore] = React.useState(true)
     const [searchData, setSearchData] = React.useState([])
+
+    // Optimizing search, so that it works faster and don't search on every single typed key stroke
+    // if the user is typing fast.
     const debouncedSearch = _.debounce(search, 250);
+
+    // Hardcode gb if store is not filled yet.
     const locale = settings.locale || 'gb'
+
+    // Antd components.
     const Search = Input.Search
+
+    // Hardcoded vars.
     const batch = 50
     const listLimit = 1000
 
+    // Pagination fetch function.
     async function fetchData(page: number) {
         await fetchUsers(page, locale)
     }
 
+    // Callback function for scrolling.
     async function handleInfiniteOnLoad(page: number) {
         let data = dataSource
         setLoading(true)
@@ -43,13 +56,17 @@ const UsersList = ({users, settings, fetchUsers, clearUsers}: IUsersList) => {
         setLoading(false)
     }
 
+    // Main search logic.
     function search(search_string) {
         let data
+
+        // Filter the current dataSource and search for the 'search_string'.
         data = _.filter(dataSource, function(user) {
             let searched_string = user.name.first + ' ' + user.name.last
             return searched_string.includes(search_string.toLowerCase())
         })
 
+        // Set the state, based on the results and the query string.
         if(data.length && search_string.length){
             setLoading(false)
             setHasMore(false)
