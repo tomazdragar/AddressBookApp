@@ -15,7 +15,7 @@ interface ISettings {
     setLocale: any
 }
 
-const Settings = ({title, subtitle, excerpt, locale, fetchSettings, fetchUsers, setLocale}: ISettings) => {
+const SettingsContainer = ({title, subtitle, excerpt, locale, fetchSettings, fetchUsers, setLocale}: ISettings) => {
     React.useEffect(()=>{
         if (!locale || !title || !subtitle || !excerpt) {
             fetchSettings()
@@ -70,4 +70,4 @@ function mapDispatchToProps(dispatch) {
     }, dispatch)
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Settings)
+export default connect(mapStateToProps, mapDispatchToProps)(SettingsContainer)

@@ -10,7 +10,7 @@ import users from "./components/users/reducers/users"
 // It 'separates' the redux store from the app, so that we can use it for testing also.
 // This gives us powerful tool for testing components with actual data.
 // Instead of testing comopnents with dummy data, we can build tests with real data from store!
-const Root = ({children, initialState={}}) => {
+const Root = ({children={}, initialState={}}) => {
     const rootReducer = combineReducers({
         settings,
         users,
@@ -25,7 +25,8 @@ const Root = ({children, initialState={}}) => {
         initialState,
         applyMiddleware(thunk, logger)
     )
-
+    console.log(initialState)
+    console.log(children)
     return (
         <Provider store={store}>
             {children}

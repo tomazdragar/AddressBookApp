@@ -14,7 +14,7 @@ interface IUsers {
     setLocale: any
 }
 
-const Users = ({users, settings, fetchUsers, clearUsers, setLocale }: IUsers) => {
+const UsersContainer = ({users, settings, fetchUsers, clearUsers, setLocale }: IUsers) => {
 
     React.useEffect(()=>{
         if (!users.length) {
@@ -44,4 +44,4 @@ function mapDispatchToProps(dispatch) {
     }, dispatch)
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Users)
+export default connect(mapStateToProps, mapDispatchToProps)(UsersContainer)

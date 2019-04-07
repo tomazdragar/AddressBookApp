@@ -4,8 +4,8 @@ import {BrowserRouter, Switch, Route} from 'react-router-dom'
 import Root from './root'
 
 // Containers
-import Settings from './components/settings/settings'
-import Users from './components/users/users'
+import Settings from './components/settings/settings-container'
+import Users from './components/users/users-container'
 
 // Components
 import Navigation from "./components/navigation/navigation"
