@@ -3,11 +3,11 @@
   “Address book app”
 </h1>
 
-<h4 align="center">It is a small working prototype, built with React(suggested new hooks), Redux, react-router 4, Antd, Webpack 4, jest/enzime, typescript</h4>
-<h6 align="center">It is my vision how react stack should look like in 2019</h6>
+<h4 align="center">It is a small working prototype, built with React, Redux, react-router 4, Antd, Webpack 4, Jest/Enzime, Typescript</h4>
+<h6 align="center">It is my vision how the React stack should look like in 2019</h6>
 ## Key Features
 
-* Show the list of users
+* Show the list of users and the browsing page
     - Have the complete overview of the users
     - List of the users is loaded gradually and also pre-fetched data is done in the background in advance
     - Show the users count, so that you can see how many users is visible
@@ -29,6 +29,7 @@
 * Mobile friendly
 
 * Fast and scalable, could be a good starting point for bigger projects
+
 
 ## Stack details
 
