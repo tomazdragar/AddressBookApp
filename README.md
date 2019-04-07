@@ -5,6 +5,7 @@
 
 <h4 align="center">It is a small working prototype, built with React, Redux, react-router 4, Antd, Webpack 4, Jest/Enzime, Typescript</h4>
 <h6 align="center">It is my vision how the React stack should look like in 2019</h6>
+
 ## Key Features
 
 * Show the list of users and the browsing page
