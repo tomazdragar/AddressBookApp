@@ -2,7 +2,7 @@
   "name": "address-book-app",
   "version": "1.0.0",
   "description": "AddressBookApp - test project",
-  "repository": "git@bitbucket.org:dragartest/AddressBookApp.git",
+  "repository": "https://github.com/tomazdragar/AddressBookApp.git",
   "main": "index.js",
   "scripts": {
     "start": "node server.js && webpack --config webpack.development.config.js --watch",
