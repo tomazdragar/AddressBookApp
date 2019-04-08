@@ -69,7 +69,7 @@ $ npm test
 ## If you don't want to install and only wish to see it in action
 
 Then check how it runs on my raspberry pi! [www.dragar.net:9000](http://www.dragar.net:9000)
-
+I also encourage you to check the browser console and see what is happening behind the scene!
 
 
 #### License
