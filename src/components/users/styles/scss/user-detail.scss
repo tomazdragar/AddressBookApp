@@ -6,4 +6,11 @@
 
 .user-data {
   text-align: center;
+  @include breakpoint(sm) {
+    text-align: left;
+  }
+}
+
+.user-name {
+  text-align: center;
 }

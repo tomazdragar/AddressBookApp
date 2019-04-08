@@ -38,9 +38,9 @@ const UserDetail = ({ user}: IUserDetail) => {
                 <Row className='details-data'>
                     <Col xs={{span: 24, offset: 0}} sm={{span: 10, offset: 1}}>
                         <Avatar className="user-avatar" size={180} src={user.picture.large}/>
-                        <p className="user-data"><b>{capitalize(user.name.title)}</b> {capitalize(user.name.first)+ ' ' +capitalize(user.name.last)}</p>
+                        <p className="user-name"><b>{capitalize(user.name.title)}</b> {capitalize(user.name.first)+ ' ' +capitalize(user.name.last)}</p>
                     </Col>
-                    <Col className="user-data" xs={{span: 24, offset: 0}} sm={{span: 12, offset: 1}}>
+                    <Col className="user-data" xs={{span: 24, offset: 0}} sm={{span: 11, offset: 2}}>
                         <p><b>Street:</b> {capitalize(user.location.street)}</p>
                         <p><b>City:</b> {capitalize(user.location.city)}</p>
                         <p><b>State:</b> {capitalize(user.location.state)}</p>
