@@ -2,7 +2,6 @@ import * as React from 'react'
 import {connect} from "react-redux"
 import {bindActionCreators} from "redux"
 import {fetchUsers, clearUsers} from "./actions/index"
-import {setLocale} from "./../settings/actions/index"
 import UsersList from "./users-list"
 
 interface IUsers {
@@ -21,16 +20,8 @@ interface IUsers {
  * @param {object} settings
  * @param {function} fetchUsers - Action
  * @param {function} clearUsers - Action
- * @param {function} setLocale - Action
  */
-const UsersContainer = ({users, settings, fetchUsers, clearUsers, setLocale }: IUsers) => {
-
-    // If store is not filled yet, and the locale is not set, then set the default locale.
-    React.useEffect(()=>{
-        if (!users.length) {
-            setLocale('gb')
-        }
-    },[users])
+const UsersContainer = ({users, settings, fetchUsers, clearUsers }: IUsers) => {
 
     // This functional component is actually a container... which is kind of pointless if we return only
     // one child component. However in reality there is usually more children returned, so I made this 'wrapper',
@@ -52,8 +43,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
     return bindActionCreators({
         fetchUsers,
-        clearUsers,
-        setLocale
+        clearUsers
     }, dispatch)
 }
 
