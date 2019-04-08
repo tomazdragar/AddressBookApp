@@ -1,5 +1,5 @@
 import * as React from 'react'
-import {Input, Col, Row, List, Card, Avatar, Spin} from 'antd'
+import {Input, Col, Row, List, Card, Avatar, Spin, Empty} from 'antd'
 import UserDetail from "./user-detail"
 import {capitalize} from '../../utils/common'
 import {IUser} from "./interfaces-types/IUser"
@@ -21,6 +21,7 @@ const UsersList = ({users, settings, fetchUsers, clearUsers}: IUsersList) => {
     const [loading, setLoading] = React.useState(false)
     const [hasMore, setHasMore] = React.useState(true)
     const [searchData, setSearchData] = React.useState([])
+    const [searchString, setSearchString] = React.useState('')
 
     // Optimizing search, so that it works faster and don't search on every single typed key stroke
     // if the user is typing fast.
@@ -60,6 +61,8 @@ const UsersList = ({users, settings, fetchUsers, clearUsers}: IUsersList) => {
     function search(search_string) {
         let data
 
+        setSearchString(search_string)
+
         // Filter the current dataSource and search for the 'search_string'.
         data = _.filter(dataSource, function(user) {
             let searched_string = user.name.first + ' ' + user.name.last
@@ -78,7 +81,11 @@ const UsersList = ({users, settings, fetchUsers, clearUsers}: IUsersList) => {
                 setHasMore(false)
             } else {
                 setLoading(false)
-                setHasMore(true)
+                if (search_string.length){
+                    setHasMore(false)
+                } else {
+                    setHasMore(true)
+                }
             }
             setSearchData([])
         }
@@ -100,7 +107,7 @@ const UsersList = ({users, settings, fetchUsers, clearUsers}: IUsersList) => {
                         </Col>
                         <Col xs={{span: 5, offset: 1}}>
                             <div className="users-count">
-                                Count:{searchData.length ? searchData.length+'/'+dataSource.length : dataSource.length}
+                                Count:{searchString ? searchData.length+'/'+dataSource.length : dataSource.length}
                             </div>
                         </Col>
                     </Row>
@@ -114,7 +121,8 @@ const UsersList = ({users, settings, fetchUsers, clearUsers}: IUsersList) => {
                                 useWindow={true}
                                 threshold={0}>
                                 <List grid={{gutter: 16, xs: 1, sm: 2, md: 4, lg: 4, xl: 6, xxl: 3,}}
-                                      dataSource={searchData.length ? searchData : dataSource}
+                                      dataSource={searchString.length ? searchData : dataSource}
+                                      locale={{ emptyText: <div></div> }}
                                       renderItem={item => (
                                           <List.Item>
                                               <Card title={
@@ -128,19 +136,24 @@ const UsersList = ({users, settings, fetchUsers, clearUsers}: IUsersList) => {
                                               </Card>
                                           </List.Item>
                                       )}/>
-                                {hasMore && loading &&(
+                                {hasMore && loading && searchString.length === 0 &&(
                                     <div className="demo-loading-container">
                                         <Spin /> loading...
                                     </div>
                                 )}
-                                {!hasMore && !searchData.length && (
+                                {!hasMore && !searchData.length && searchString.length === 0 &&(
                                     <div className="demo-loading-container">
                                         end of users catalog
                                     </div>
                                 )}
-                                {!hasMore && searchData.length > 0 && (
+                                {!hasMore && searchData.length > 0 && searchString.length &&(
                                     <div className="demo-loading-container">
                                         end of search results
+                                    </div>
+                                )}
+                                {!hasMore && searchData.length === 0 && searchString.length && (
+                                    <div className="demo-loading-container">
+                                        no results
                                     </div>
                                 )}
                             </InfiniteScroll>
