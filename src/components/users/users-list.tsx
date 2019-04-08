@@ -1,5 +1,5 @@
 import * as React from 'react'
-import {Input, Col, Row, List, Card, Avatar, Spin, Empty} from 'antd'
+import {Input, Col, Row, List, Card, Avatar, Spin} from 'antd'
 import UserDetail from "./user-detail"
 import {capitalize} from '../../utils/common'
 import {IUser} from "./interfaces-types/IUser"
